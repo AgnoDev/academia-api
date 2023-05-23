@@ -20,6 +20,7 @@ public class MatriculaServiceImpl implements IMatriculaService {
     public Matricula create(MatriculaForm form) {
         Matricula matricula = new Matricula();
         Aluno aluno = alunoRepository.findById(form.getAlunoId()).get();
+        // fazer exception caso o id não exista
         matricula.setAluno(aluno);
         return matriculaRepository.save(matricula);
     }
@@ -31,7 +32,7 @@ public class MatriculaServiceImpl implements IMatriculaService {
 
     @Override
     public List<Matricula> getAll() {
-        return null;
+        return matriculaRepository.findAll();
     }
 
     @Override

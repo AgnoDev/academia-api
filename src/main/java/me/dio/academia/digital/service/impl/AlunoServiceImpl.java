@@ -37,6 +37,7 @@ public class AlunoServiceImpl implements IAlunoService {
 
     @Override
     public List<Aluno> getAll() {
+
         return alunoRepository.findAll();
     }
 
