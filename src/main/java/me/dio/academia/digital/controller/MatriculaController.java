@@ -26,4 +26,9 @@ public class MatriculaController {
         return matriculaService.getAll();
     }
 
+    @GetMapping("/buscaselecionada")
+    public List<Matricula> getAllMatriculasBairro(@RequestParam(value = "bairro", required = false) String bairro){
+        return matriculaService.getAllMatriculasBairro(bairro);
+    }
+
 }

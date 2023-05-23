@@ -25,6 +25,7 @@ public interface IMatriculaService {
    * @return - uma lista com todas as Matrículas que estão salvas no DB.
    */
   List<Matricula> getAll();
+  List<Matricula> getAllMatriculasBairro(String bairro);
 
   /**
    * Deleta uma Matrícula específica.
