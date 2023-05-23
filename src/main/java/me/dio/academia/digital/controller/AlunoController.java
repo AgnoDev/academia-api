@@ -7,6 +7,7 @@ import me.dio.academia.digital.entity.form.AlunoForm;
 import me.dio.academia.digital.service.impl.AlunoServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -21,7 +22,7 @@ public class AlunoController {
     }
 
     @PostMapping
-    public Aluno create (@RequestBody AlunoForm alunoForm){
+    public Aluno create (@Valid @RequestBody AlunoForm alunoForm){
         return alunoService.create(alunoForm);
     }
 
