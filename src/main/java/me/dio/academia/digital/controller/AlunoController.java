@@ -1,5 +1,6 @@
 package me.dio.academia.digital.controller;
 
+import lombok.RequiredArgsConstructor;
 import me.dio.academia.digital.entity.Aluno;
 import me.dio.academia.digital.service.impl.AlunoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,13 +11,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/alunos")
+@RequiredArgsConstructor
 public class AlunoController {
-    @Autowired
-    private AlunoServiceImpl service;
+    private final AlunoServiceImpl alunoService;
 
     @GetMapping
     private List<Aluno> getAll(){
-        return service.getAll();
+        return alunoService.getAll();
     }
 
 }
