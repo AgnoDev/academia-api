@@ -1,8 +1,10 @@
 package me.dio.academia.digital.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import me.dio.academia.digital.entity.Aluno;
 import me.dio.academia.digital.entity.Matricula;
 import me.dio.academia.digital.entity.form.MatriculaForm;
+import me.dio.academia.digital.repository.AlunoRepository;
 import me.dio.academia.digital.repository.MatriculaRepository;
 import me.dio.academia.digital.service.IMatriculaService;
 import org.springframework.stereotype.Service;
@@ -13,9 +15,13 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MatriculaServiceImpl implements IMatriculaService {
     private final MatriculaRepository matriculaRepository;
+    private final AlunoRepository alunoRepository;
     @Override
     public Matricula create(MatriculaForm form) {
-        return null;
+        Matricula matricula = new Matricula();
+        Aluno aluno = alunoRepository.findById(form.getAlunoId()).get();
+        matricula.setAluno(aluno);
+        return matriculaRepository.save(matricula);
     }
 
     @Override
