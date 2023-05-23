@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-//@Entity
+@Entity
 @Table(name = "tb_avaliacoes")
 public class AvaliacaoFisica {
 
